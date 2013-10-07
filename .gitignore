@@ -1,6 +1,10 @@
 *.class
+Makefile
 
 # Package Files #
 *.jar
 *.war
 *.ear
+
+# Temp Files #
+*~
