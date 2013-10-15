@@ -23,7 +23,8 @@ public class TemperatureTest {
    public void test_toKelvin (){
       System.out.println("Test Temperature's conversion to Kelvin");
       Temperature T = new Temperature(0,Temperature.Units.CELSIUS);
-      assertTrue(T.getValue() == 0.0);
+      T.changeUnits(Temperature.Units.KELVIN);
+      assertTrue(T.getValue() == 273.15);
    }
 
 
