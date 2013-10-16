@@ -1,5 +1,6 @@
 /** 
  * @author Aditya Mahajan <aditya.mahajan@mcgill.ca>
+ * @contributor Michael Williams (260369438)
  * @version 2013.10.06
  * Unit Testing Temperature class
  */
@@ -19,7 +20,8 @@ public class TemperatureTest {
       System.out.println("Test Temperature's getValue funtion");
       Temperature T = new Temperature(0,Temperature.Units.CELSIUS);
       System.out.println(T.toString());
-      assertTrue(Math.abs(T.getValue()) < 0.0001);
+      assertTrue(Math.abs(T.getValue()) < 1e-6);
+      assertTrue(T.getUnits() == Temperature.Units.CELSIUS);
    }
 
    // Check Conversion to Kelvin, 0 C (freezing temperature of water)
@@ -30,7 +32,7 @@ public class TemperatureTest {
       Temperature T = new Temperature(0,Temperature.Units.CELSIUS);
       T.changeUnits(Temperature.Units.KELVIN);
       System.out.println(T.toString());
-      assertTrue(Math.abs(T.getValue() - 273.15) < 0.0001);
+      assertTrue(Math.abs(T.getValue() - 273.15) < 1e-6);
    }
 
    // Check Conversion to Fahrenheit, 0 C (freezing temperature of water)
@@ -41,7 +43,7 @@ public class TemperatureTest {
       Temperature T = new Temperature(0,Temperature.Units.CELSIUS);
       T.changeUnits(Temperature.Units.FAHRENHEIT);
       System.out.println(T.toString());
-      assertTrue(Math.abs(T.getValue() - 32) < 0.0001);
+      assertTrue(Math.abs(T.getValue() - 32) < 1e-6);
    }  
 
    // Check toString to Fahrenheit, 0 C (freezing temperature of water)
@@ -55,8 +57,4 @@ public class TemperatureTest {
       System.out.println(T.toString());
       assertTrue(T.toString() == "32.0 °F");
    }  
-  // @Test
-  // public void .... (){
-  //    ...
-  // }
 }
