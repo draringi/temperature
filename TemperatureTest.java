@@ -24,7 +24,7 @@ public class TemperatureTest {
       assertTrue(T.getUnits() == Temperature.Units.CELSIUS);
    }
 
-   // Check Conversion to Kelvin, 0 C (freezing temperature of water)
+   // Check Conversion to Kelvin from Celsius, 0 C (freezing temperature of water)
    // is chosen due to it being mentioned as an example in the code
    @Test
    public void test_celsiusToKelvin (){
@@ -33,9 +33,10 @@ public class TemperatureTest {
       T.changeUnits(Temperature.Units.KELVIN);
       System.out.println(T.toString());
       assertTrue(Math.abs(T.getValue() - 273.15) < 1e-6);
+      assertTrue(T.getUnits() == Temperature.Units.KELVIN);
    }
 
-   // Check Conversion to Fahrenheit, 0 C (freezing temperature of water)
+   // Check Conversion to Fahrenheit from Celsius, 0 C (freezing temperature of water)
    // is chosen due to it being mentioned as an example in the code
    @Test
    public void test_celsiusToFahrenheit (){
@@ -44,6 +45,30 @@ public class TemperatureTest {
       T.changeUnits(Temperature.Units.FAHRENHEIT);
       System.out.println(T.toString());
       assertTrue(Math.abs(T.getValue() - 32) < 1e-6);
+      assertTrue(T.getUnits() == Temperature.Units.FAHRENHEIT);
    }  
-  
+
+   // Check Conversion to Fahrenheit from Kelvin, 0 K (Absolute Zero)
+   // is chosen due to it being a common temp in Kelvin
+   @Test
+   public void test_kelvinToFahrenheit (){
+      System.out.println("Test Temperature's conversion to Fahrenheit");
+      Temperature T = new Temperature(0,Temperature.Units.KELVIN);
+      T.changeUnits(Temperature.Units.FAHRENHEIT);
+      System.out.println(T.toString());
+      assertTrue(Math.abs(T.getValue() + 459.67) < 1e-6);
+      assertTrue(T.getUnits() == Temperature.Units.FAHRENHEIT);
+   }
+
+   // Check Conversion to Celsius from Kelvin, 0 K (Absolute Zero)
+   // is chosen due to it being a common temp in Kelvin
+   @Test
+   public void test_calvinToCelsius (){
+      System.out.println("Test Temperature's conversion to Fahrenheit");
+      Temperature T = new Temperature(0,Temperature.Units.KELVIN);
+      T.changeUnits(Temperature.Units.CELSIUS);
+      System.out.println(T.toString());
+      assertTrue(Math.abs(T.getValue() + 273.15) < 1e-6);
+      assertTrue(T.getUnits() == Temperature.Units.CELSIUS);
+   }
 }
