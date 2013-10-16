@@ -28,7 +28,7 @@ public class TemperatureTest {
    // is chosen due to it being mentioned as an example in the code
    @Test
    public void test_celsiusToKelvin (){
-      System.out.println("Test Temperature's conversion to Kelvin");
+      System.out.println("Test Celsius conversion to Kelvin");
       Temperature T = new Temperature(0,Temperature.Units.CELSIUS);
       T.changeUnits(Temperature.Units.KELVIN);
       System.out.println(T.toString());
@@ -40,7 +40,7 @@ public class TemperatureTest {
    // is chosen due to it being mentioned as an example in the code
    @Test
    public void test_celsiusToFahrenheit (){
-      System.out.println("Test Temperature's conversion to Fahrenheit");
+      System.out.println("Test Celsius conversion to Fahrenheit");
       Temperature T = new Temperature(0,Temperature.Units.CELSIUS);
       T.changeUnits(Temperature.Units.FAHRENHEIT);
       System.out.println(T.toString());
@@ -52,7 +52,7 @@ public class TemperatureTest {
    // is chosen due to it being a common temp in Kelvin
    @Test
    public void test_kelvinToFahrenheit (){
-      System.out.println("Test Temperature's conversion to Fahrenheit");
+      System.out.println("Test Kelvin conversion to Fahrenheit");
       Temperature T = new Temperature(0,Temperature.Units.KELVIN);
       T.changeUnits(Temperature.Units.FAHRENHEIT);
       System.out.println(T.toString());
@@ -64,7 +64,7 @@ public class TemperatureTest {
    // is chosen due to it being a common temp in Kelvin
    @Test
    public void test_calvinToCelsius (){
-      System.out.println("Test Temperature's conversion to Fahrenheit");
+      System.out.println("Test Kelvin conversion to Celsius");
       Temperature T = new Temperature(0,Temperature.Units.KELVIN);
       T.changeUnits(Temperature.Units.CELSIUS);
       System.out.println(T.toString());
