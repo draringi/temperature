@@ -63,12 +63,36 @@ public class TemperatureTest {
    // Check Conversion to Celsius from Kelvin, 0 K (Absolute Zero)
    // is chosen due to it being a common temp in Kelvin
    @Test
-   public void test_calvinToCelsius (){
+   public void test_kelvinToCelsius (){
       System.out.println("Test Kelvin conversion to Celsius");
       Temperature T = new Temperature(0,Temperature.Units.KELVIN);
       T.changeUnits(Temperature.Units.CELSIUS);
       System.out.println(T.toString());
       assertTrue(Math.abs(T.getValue() + 273.15) < 1e-6);
       assertTrue(T.getUnits() == Temperature.Units.CELSIUS);
+   }
+
+   // Check Conversion to Celsius from Fahrenheit, 100 F
+   // is chosen due to it being a common High temperature in Fahrenheit
+   @Test
+   public void test_fahrenheitToCelsius (){
+      System.out.println("Test Fahrenheit conversion to Celsius");
+      Temperature T = new Temperature(100,Temperature.Units.FAHRENHEIT);
+      T.changeUnits(Temperature.Units.CELSIUS);
+      System.out.println(T.toString());
+      assertTrue(Math.abs(T.getValue() - 37.7777778) < 1e-6);
+      assertTrue(T.getUnits() == Temperature.Units.CELSIUS);
+   }
+
+   // Check Conversion to Kalvin from Fahrenheit, 100 F
+   // is chosen due to it being a common High temperature in Fahrenheit
+   @Test
+   public void test_fahrenheitToKelvin (){
+      System.out.println("Test Fahrenheit conversion to Kelvin");
+      Temperature T = new Temperature(100,Temperature.Units.FAHRENHEIT);
+      T.changeUnits(Temperature.Units.KELVIN);
+      System.out.println(T.toString());
+      assertTrue(Math.abs(T.getValue() - 310.9277778) < 1e-6);
+      assertTrue(T.getUnits() == Temperature.Units.KELVIN);
    }
 }
